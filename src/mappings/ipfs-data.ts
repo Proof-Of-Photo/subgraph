@@ -7,7 +7,6 @@ import {
   ReviewDescription,
   EvidenceDescription,
 } from '../../generated/schema'
-import { getOrCreateKeyword } from '../getters'
 
 //Adds metadata from ipfs as a entity called ServiceDescription.
 export function handleServiceData(content: Bytes): void {
@@ -31,17 +30,14 @@ export function handleServiceData(content: Bytes): void {
   description.about = getValueAsString(jsonObject, 'about')
   description.startDate = getValueAsBigInt(jsonObject, 'startDate')
   description.expectedEndDate = getValueAsBigInt(jsonObject, 'expectedEndDate')
-  const keywords = getValueAsString(jsonObject, 'keywords')
-  if (keywords !== null) {
-    description.keywords_raw = keywords.toLowerCase()
-  }
+  description.latitude = getValueAsString(jsonObject, 'latitude')
+  description.longitude = getValueAsString(jsonObject, 'longitude')
   description.rateToken = getValueAsString(jsonObject, 'rateToken')
   description.rateAmount = getValueAsString(jsonObject, 'rateAmount')
   description.video_url = getValueAsString(jsonObject, 'video_url')
 
   //Creates duplicate values. Open issue
   //https://github.com/graphprotocol/graph-node/issues/4087
-  // description.keywords = createKeywordEntities(description.keywords_raw!)!
 
   description.save()
 }
@@ -129,7 +125,6 @@ export function handleUserData(content: Bytes): void {
 
   //Creates duplicate values. Open issue
   //https://github.com/graphprotocol/graph-node/issues/4087
-  //description.skills = createKeywordEntities(description.skills_raw!)!
 
   description.save()
 }
@@ -205,33 +200,4 @@ function getValueAsBigInt(jsonObject: TypedMap<string, JSONValue>, key: string):
   }
 
   return value.toBigInt()
-}
-
-//Transforms a comma separated string of keywords into an Array of Keyword.id entities.
-function createKeywordEntities(keywords: string): string[] | null {
-  const _keywords = keywords.split(',')
-
-  //To avoid returning an empty list, which is not allowed according to the schema.
-  if (_keywords.length == 0) {
-    return null
-  }
-
-  //Initialize an array with length of number of keywords
-  let keywordArray: string[] = []
-
-  //Create keyword entities and add to array
-  for (let i = 0; i < _keywords.length; i++) {
-    //removes whitespace at beginning and end.
-    //needed because of keywords.split(",").
-    let text = _keywords[i].trim()
-
-    //Will generate duplicates.
-    //Open subgraph issues
-    //https://github.com/graphprotocol/graph-node/issues/4087
-    // and error: error: store error: conflicting key value violates exclusion constraint "keyword_id_block_range_excl"
-    // let keyword = getOrCreateKeyword(text)
-    // keywordArray.push(keyword.id)
-  }
-
-  return keywordArray
 }

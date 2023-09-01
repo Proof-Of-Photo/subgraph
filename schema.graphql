@@ -1,8 +1,8 @@
 enum ServiceStatus {
-  Opened,
-  Confirmed,
-  Finished,
-  Cancelled,
+  Opened
+  Confirmed
+  Finished
+  Cancelled
   Uncompleted
 }
 
@@ -32,8 +32,8 @@ type ServiceDescription @entity(immutable: true) {
   about: String
   startDate: BigInt
   expectedEndDate: BigInt
-  keywords: [Keyword!] #keywords
-  keywords_raw: String #lowercase keywords in raw format
+  latitude: String
+  longitude: String
   rateToken: String
   rateAmount: String
   video_url: String
