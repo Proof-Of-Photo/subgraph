@@ -1,4 +1,4 @@
-# Subgraph for TalentLayer
+# Subgraph for Proof Of Picture
 
 - Local setup: https://docs.talentlayer.org/open-source-contribution/advanced-documentation/subgraph-local-setup
 - Endpoints: https://docs.talentlayer.org/technical-guides/graph-schema
