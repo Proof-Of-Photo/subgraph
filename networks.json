@@ -86,5 +86,31 @@
       "address": "0x09FF07297d48eD9aD870caCE4b33BF30869C1D17",
       "startBlock": 41128230
     }
+  },
+  "celo-alfajores": {
+    "TalentLayerPlatformId": {
+      "address": "0x89366dDA3A50a8C1a4493659764A909Fb148ac52",
+      "startBlock": 19667260
+    },
+    "TalentLayerId": {
+      "address": "0xEBd61d20528f83a9d57ccf22C7Ee6D79cec70452",
+      "startBlock": 19667260
+    },
+    "TalentLayerService": {
+      "address": "0xE34Db2FDD56ad67F9F7298d34Ba58b83CD17eA63",
+      "startBlock": 19667260
+    },
+    "TalentLayerReview": {
+      "address": "0x4d0A0Ce220f6286ecf4Ad2D3D2001A86618AAbA5",
+      "startBlock": 19667260
+    },
+    "TalentLayerArbitrator": {
+      "address": "0xF40adFF243a207f7F96D2448309919B2B878cBc2",
+      "startBlock": 19667260
+    },
+    "TalentLayerEscrow": {
+      "address": "0xCe48dbBD5210B7CA02051f8dBc31a14cE0Ae2e86",
+      "startBlock": 19667260
+    }
   }
 }

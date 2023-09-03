@@ -16,10 +16,15 @@ sub:
 deploy-mumbai: 
 	graph codegen
 	graph build --network mumbai
-	graph deploy --product hosted-service talentlayer/talent-layer-mumbai
+	graph deploy --product hosted-service yashgo0018/proof-of-picture
 
 ## Mumbai hosted subgraph: https://thegraph.com/hosted-service/subgraph/talentlayer/talentlayer-polygon
 deploy-matic: 
 	graph codegen
 	graph build --network matic
-	graph deploy --product hosted-service talentlayer/talentlayer-polygon
+	graph deploy --product hosted-service yashgo0018/proof-of-picture
+
+deploy-celo: 
+	graph codegen
+	graph build --network celo-alfajores
+	graph deploy --product hosted-service yashgo0018/proof-of-picture
